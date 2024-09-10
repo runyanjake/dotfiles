@@ -1,5 +1,5 @@
 # Alacritty
-A terminal that can handle a nerd font.
+A terminal that can handle a nerd font. Used alongside lazyvim.
 
 ## MacOS
 1. Download a release from `https://github.com/alacritty/alacritty/releases` or get it using Homebrew
