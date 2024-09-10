@@ -3,6 +3,11 @@ My LazyVim config, a sequel to runyanjake/nvim.
 Based off of `https://github.com/LazyVim/starter`.
 
 ## Installation
+1. Install Neovim if not installed.  
+Homebrew:
+```
+brew install neovim
+```
 1. Back up existing nvim config
 ```
 mv ~/.config/nvim ~/.config/nvim_BAK
@@ -13,9 +18,9 @@ gh repo clone runyanjake/lazyvim  ~/repositories/lazyvim
 ```
 3. Link all nvim related items to the nvim config folder.
 ```
-ln -sfn /path/to/stylua.toml ~/.config/nvim/stylua.toml
-ln -sfn /path/to/lua ~/.config/nvim/lua
-ln -sfn /path/to/init.lua ~/.config/nvim/init.lua
+ln -sfn /path/to/dotfiles/lazyvim/stylua.toml ~/.config/nvim/stylua.toml
+ln -sfn /path/to/dotfiles/lazyvim/lua ~/.config/nvim/lua
+ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
 ```
 4. Start nvim, and let all the packages install. Done!
 
