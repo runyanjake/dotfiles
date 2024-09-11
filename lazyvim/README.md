@@ -24,13 +24,22 @@ ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
 ```
 4. Start nvim, and let all the packages install. Done!
 
-## Plugins/Addons
+## Plugins/Addons/Extras
 
 ### Mason (Language Servers)
 Enter Mason UI view from nvim: `:Mason`. Enter `g?` to toggle help page if you've forgotten the hotkeys. 
 Some ideas of what to install:
 - `java-language-server`
 - `python-lsp-server`
+
+### Clipboard Support
+By default LazyVim can't copy things to the clipboard.  
+Install vim-gtk3 to support this:
+```
+sudo apt install vim-gtk3
+```
+Now, right click > copy will copy to system clipboard.
+Alternatively you can copy to the `+` or `*`  register (`"`` + `+` + `y` ) and paste outside.
 
 ## Shortcut Reference
 `<LEADER>` key is space key. I don't see a need to change it for me.
