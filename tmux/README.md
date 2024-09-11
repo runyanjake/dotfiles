@@ -24,6 +24,9 @@ tmux source ~/.tmux.conf
 ### TPM
 Tmux Package Manager is de facto package manager for tmux.
 
+## General Notes
+- When updating `tmux.conf`, styling stays after the directives that set them are removed. This means you might have to `tmux kill-server` in addition to `tmux source ~/.tmux.conf`. 
+
 ## Shortcut Reference
 `<PREFIX>` key combo is `C-a` by default (Ctrl + a), changed from standard `C-b`.
 ```
