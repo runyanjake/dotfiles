@@ -8,21 +8,27 @@ Homebrew:
 ```
 brew install neovim
 ```
-1. Back up existing nvim config
+Ubuntu (installing newer version of neovim):
+```
+- `sudo add-apt-repository ppa:neovim-ppa/stable`
+- `sudo apt update`  
+- `sudo apt install neovim`
+```
+2. Back up existing nvim config
 ```
 mv ~/.config/nvim ~/.config/nvim_BAK
 ```
-2. Clone this repo to wherever you're gonna keep it.
+3. Clone this repo to wherever you're gonna keep it.
 ```
 gh repo clone runyanjake/lazyvim  ~/repositories/lazyvim
 ```
-3. Link all nvim related items to the nvim config folder.
+4. Link all nvim related items to the nvim config folder.
 ```
 ln -sfn /path/to/dotfiles/lazyvim/stylua.toml ~/.config/nvim/stylua.toml
 ln -sfn /path/to/dotfiles/lazyvim/lua ~/.config/nvim/lua
 ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
 ```
-4. Start nvim, and let all the packages install. Done!
+5. Start nvim, and let all the packages install. Done!
 
 ## Plugins/Addons/Extras
 
