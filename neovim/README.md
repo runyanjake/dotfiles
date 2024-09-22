@@ -21,14 +21,19 @@ My nvim configuration for neovim on ubuntu. Sort of superceded by nvim config.
 
 ### First Time Setup
 1. Install the latest version of Neovim from the Neovim Launchpad PPA. Ubuntu apt has an older version, and since then much has changed, so we'll prefer the latest stable from the PPA.
-- `sudo add-apt-repository ppa:neovim-ppa/stable`
-- `sudo apt update`  
-- `sudo apt install neovim`
+```
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update
+sudo apt install neovim
+```
 2. Ensure that the nvim runtimepath is correctly configured to include `~/.config.nvim`.  
 You can check that by executing this nvim command: `:echo &runtimepath`. 
 3. Both `init.lua` as well as the `lua/` folder and its contents should be symlinked to `~/.config/nvim` (Might need to create the nvim folder if first time).  
-- `ln -sfn /path/to/dotfiles/neovim/init.lua ~/.config/nvim/init.lua`
-- `ln -sfn /path/to/dotfiles/neovim/lua ~/.config/nvim/lua`  
+```
+mkdir ~/.config/nvim
+ln -sfn /path/to/dotfiles/neovim/init.lua ~/.config/nvim/init.lua
+ln -sfn /path/to/dotfiles/neovim/lua ~/.config/nvim/lua
+```
 The next time vim is opened, the config changes will apply.
 
 ### Configuration
