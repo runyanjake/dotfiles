@@ -10,9 +10,9 @@ brew install neovim
 ```
 Ubuntu (installing newer version of neovim):
 ```
-- `sudo add-apt-repository ppa:neovim-ppa/stable`
-- `sudo apt update`  
-- `sudo apt install neovim`
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update
+sudo apt install neovim
 ```
 2. Back up existing nvim config
 ```
