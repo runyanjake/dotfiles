@@ -27,8 +27,8 @@ My nvim configuration for neovim on ubuntu. Sort of superceded by nvim config.
 2. Ensure that the nvim runtimepath is correctly configured to include `~/.config.nvim`.  
 You can check that by executing this nvim command: `:echo &runtimepath`. 
 3. Both `init.lua` as well as the `lua/` folder and its contents should be symlinked to `~/.config/nvim` (Might need to create the nvim folder if first time).  
-- `ln -sfn /path/to/dotfiles/nvim/init.lua ~/.config/nvim/init.lua`
-- `ln -sfn /path/to/dotfiles/nvim/lua ~/.config/nvim/lua`  
+- `ln -sfn /path/to/dotfiles/neovim/init.lua ~/.config/nvim/init.lua`
+- `ln -sfn /path/to/dotfiles/neovim/lua ~/.config/nvim/lua`  
 The next time vim is opened, the config changes will apply.
 
 ### Configuration
