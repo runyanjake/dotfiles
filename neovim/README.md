@@ -20,6 +20,11 @@ My nvim configuration for neovim on ubuntu. Sort of superceded by nvim config.
 ## Instructions
 
 ### First Time Setup
+0. The OS may not be bundled with GCC which is required for neovim variants. It is part of `build-essential`, a bundle of useful build tools.
+```
+sudo apt install build-essential
+```
+
 1. Install the latest version of Neovim from the Neovim Launchpad PPA. Ubuntu apt has an older version, and since then much has changed, so we'll prefer the latest stable from the PPA.
 ```
 sudo add-apt-repository ppa:neovim-ppa/stable

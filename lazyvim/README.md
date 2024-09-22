@@ -3,6 +3,10 @@ My LazyVim config, a sequel to runyanjake/nvim.
 Based off of `https://github.com/LazyVim/starter`.
 
 ## Installation
+0. The OS may not be bundled with GCC which is required for neovim variants. It is part of `build-essential`, a bundle of useful build tools.
+```
+sudo apt install build-essential
+```
 1. Install Neovim if not installed.  
 Homebrew:
 ```
