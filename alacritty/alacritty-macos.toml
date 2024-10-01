@@ -16,7 +16,7 @@ normal.family = "MesloLGS Nerd Font Mono"
 size = 14
 
 [colors.primary]
-background = "#1b1f32"
+background = "#0f111c"
 foreground = "#9094a7"
 
 [colors.normal]
