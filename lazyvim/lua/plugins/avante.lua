@@ -1,14 +1,21 @@
 -- https://github.com/yetone/avante.nvim
--- Note disabled for now. (See enabled=false)
 return {
   {
     "yetone/avante.nvim",
-    enabled = false,
     event = "VeryLazy",
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      -- add any opts here
+      provider = "pws_llm",
+      vendors = {
+        pws_llm = {
+          endpoint = "http://localhost:8000",
+          model = "gpt2",
+          timeout = 30000,
+          api_key_name = "", --empty because no key is required
+          api_key = "", --self hosted :)
+        },
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
