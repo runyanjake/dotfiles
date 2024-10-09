@@ -9,7 +9,7 @@ return {
       provider = "pws_llm",
       vendors = {
         pws_llm = {
-          endpoint = "http://localhost:8000",
+          endpoint = "http://localhost:8000/completion",
           model = "gpt2",
           timeout = 30000,
           api_key_name = "", --empty because no key is required
