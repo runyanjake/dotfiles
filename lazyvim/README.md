@@ -53,7 +53,8 @@ Now, right click > copy will copy to system clipboard.
 Alternatively you can copy to the `+` or `*`  register (`"`` + `+` + `y` ) and paste outside.
 
 ### Avante
-Reference: https://github.com/yetone/avante.nvim/blob/main/lua/avante/config.lua
+Reference: https://github.com/yetone/avante.nvim/blob/main/lua/avante/config.lua  
+Remember that the sidebar is toggleable using `LEADER + a + a`.
 
 ## Shortcut Reference
 `<LEADER>` key is space key. I don't see a need to change it for me.
