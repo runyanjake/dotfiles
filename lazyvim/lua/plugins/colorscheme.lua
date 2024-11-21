@@ -12,6 +12,7 @@ return {
     name = "catppuccin",
     priority = 1000,
   },
+  -- Set the theme
   {
     "LazyVim/LazyVim",
     opts = {

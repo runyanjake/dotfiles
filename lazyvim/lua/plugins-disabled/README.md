@@ -1,3 +1,3 @@
 # Disabled plugins folder.
-Plugins are loaded by lazy.lua, by scanning the lua/plugins folder.  
-Move unused items to this folder.
+Active plugins are found in the plugins folder, which is scanned by LazyVim.
+Inactive plugins can be moved here to avoid accidental lazy loading.

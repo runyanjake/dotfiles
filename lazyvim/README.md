@@ -35,6 +35,9 @@ ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
 ```
 5. Start nvim, and let all the packages install. Done!
 
+## Reminders
+If uninstalling, you need to manually get rid of stuff in `~/.local/share/nvim` before reinstalling everything.
+
 ## Plugins/Addons/Extras
 
 ### Mason (Language Servers)
