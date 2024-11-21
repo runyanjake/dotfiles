@@ -1,3 +1,4 @@
+-- https://github.com/nvim-java/nvim-java/wiki/Lazyvim
 return {
   "nvim-java/nvim-java",
   config = false,
