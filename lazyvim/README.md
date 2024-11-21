@@ -35,6 +35,20 @@ ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
 ```
 5. Start nvim, and let all the packages install. Done!
 
+## Reinstallation
+Sometimes you gotta uninstall and reinstall, here are all the steps in one convenient place:
+```
+sudo apt remove neovim
+sudo rm -r ~/.local/share/nvim/
+sudo rm -r ~/.config/nvim
+sudo apt install neovim
+
+mkdir ~/.config/nvim
+ln -sfn /path/to/dotfiles/lazyvim/stylua.toml ~/.config/nvim/stylua.toml
+ln -sfn /path/to/dotfiles/lazyvim/lua ~/.config/nvim/lua
+ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
+```
+
 ## Reminders
 If uninstalling, you need to manually get rid of stuff in `~/.local/share/nvim` before reinstalling everything.
 
