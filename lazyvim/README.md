@@ -52,6 +52,19 @@ ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
 ## Reminders
 If uninstalling, you need to manually get rid of stuff in `~/.local/share/nvim` before reinstalling everything.
 
+## Dependencies
+Some plugins depend on other packages.
+
+1. Ripgrep
+This is needed because the grep feature (Leader + /) spawns an rg process to do grepping.
+
+Install with:
+```
+sudo apt-get install ripgrep
+```
+
+```
+
 ## Plugins/Addons/Extras
 
 ### Mason (Language Servers)
