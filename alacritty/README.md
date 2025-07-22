@@ -34,5 +34,5 @@ rm -r Meslo Meslo.zip
 3. Create an Alacritty config folder and link the alacritty config in this repo into there.
 ```
 mkdir -p ~/.config/alacritty
-ln -sfn /path/to/dotfiles/lazyvim/alacritty-ubuntu.toml ~/.config/alacritty/alacritty.toml
+ln -sfn /path/to/dotfiles/alacritty/alacritty-ubuntu.toml ~/.config/alacritty/alacritty.toml
 ```
