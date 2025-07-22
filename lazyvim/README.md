@@ -63,6 +63,12 @@ Install with:
 sudo apt-get install ripgrep
 ```
 
+2. fdfind
+This is used for the search bar in the treesitter panel.
+
+Install with: 
+```
+sudo apt install fd-find
 ```
 
 ## Plugins/Addons/Extras
