@@ -64,7 +64,7 @@ sudo apt-get install ripgrep
 ```
 
 2. fdfind
-This is used for the search bar in the treesitter panel.
+This is used for the search bar in the explorer panel.
 
 Install with: 
 ```
