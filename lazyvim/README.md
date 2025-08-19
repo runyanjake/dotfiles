@@ -7,6 +7,7 @@ Based off of `https://github.com/LazyVim/starter`.
 ```
 sudo apt install build-essential
 ```
+
 1. Install Neovim if not installed.  
 Homebrew:
 ```
@@ -18,14 +19,17 @@ sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt update
 sudo apt install neovim
 ```
+
 2. Back up existing nvim config
 ```
 mv ~/.config/nvim ~/.config/nvim_BAK
 ```
+
 3. Clone this repo to wherever you're gonna keep it.
 ```
 gh repo clone runyanjake/lazyvim  ~/repositories/lazyvim
 ```
+
 4. Link all nvim related items to the nvim config folder.
 ```
 mkdir ~/.config/nvim
@@ -33,6 +37,7 @@ ln -sfn /path/to/dotfiles/lazyvim/stylua.toml ~/.config/nvim/stylua.toml
 ln -sfn /path/to/dotfiles/lazyvim/lua ~/.config/nvim/lua
 ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
 ```
+
 5. Start nvim, and let all the packages install. Done!
 
 ## Reinstallation
@@ -55,21 +60,16 @@ If uninstalling, you need to manually get rid of stuff in `~/.local/share/nvim` 
 ## Dependencies
 Some plugins depend on other packages.
 
-1. Ripgrep
-This is needed because the grep feature (Leader + /) spawns an rg process to do grepping.
+Use the `:checkhealth` command in Lazyvim to identify which packages need to be installed on the system.
 
-Install with:
-```
-sudo apt-get install ripgrep
-```
-
-2. fdfind
-This is used for the search bar in the explorer panel.
-
-Install with: 
+### Misc Dependencies
+1. fdfind
+This is used for the nvim-tree (?) search bar in the explorer panel.
 ```
 sudo apt install fd-find
 ```
+
+2. 
 
 ## Plugins/Addons/Extras
 
