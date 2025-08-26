@@ -3,59 +3,86 @@ My LazyVim config, a sequel to runyanjake/nvim.
 Based off of `https://github.com/LazyVim/starter`.
 
 ## Installation
-0. The OS may not be bundled with GCC which is required for neovim variants. It is part of `build-essential`, a bundle of useful build tools.
+
+### Configure X11 Forwarding (For clipboard access over SSH)
+Confirm on your client, and when ssh'd into remote, that `echo $DISPLAY` returns `:0` or `:1`.
+
+Install dependencies:
+```
+sudo apt install xauth x11-apps libx11-dev libxkbfile-dev libxtst-dev
+```
+
+Edit SSH Daemon config to allow X11 forwarding:
+```
+sudo vim /etc/ssh/sshd_config
+
+X11Forwarding yes
+X11DisplayOffset 10
+X11UseLocalhost yes
+```
+
+Reminder to connect using -X flag e.g. `ssh -X user@hostname` to make use of our configuration.
+
+Validate while ssh'd to server by seeing if `echo $DISPLAY` returns something along the lines of `localhost:10.0`. Or try `xclock`.
+
+### Install Neovim
+Build Neovim from source so that we can ensure clipboard support. 
+
+#### Build Dependencies
+This requires the proper packages to be installed _at the time of build_ so install the X11 dependencies above.
+
+Also install these system clipboard tools:
+```
+sudo apt install xclip xsel
+sudo apt install wl-clipboard  # If using wayland, I am not.
+```
+
+#### Build Steps
+```
+git clone https://github.com/neovim/neovim.git
+cd neovim
+git checkout stable
+git clean -fdx  # If we already cloned/built and need to clean old build files.
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+```
+
+Test that clipboard support is available.
+```
+nvim
+:echo has('clipboard')
+```
+OR
+```
+nvim --version | grep clipboard
+```
+This doesn't work for me but you would see the following:
+```
++clipboard
++xterm_clipboard
+```
+
+### Misc Dependencies
+Sometimes GCC is required for some nvim variants.
 ```
 sudo apt install build-essential
 ```
 
-1. Install Neovim if not installed.  
-Homebrew:
-```
-brew install neovim
-```
-Ubuntu (installing newer version of neovim):
-```
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt update
-sudo apt install neovim
-```
+### Configuration
 
-2. Back up existing nvim config
-```
-mv ~/.config/nvim ~/.config/nvim_BAK
-```
-
-3. Clone this repo to wherever you're gonna keep it.
-```
-gh repo clone runyanjake/lazyvim  ~/repositories/lazyvim
-```
-
-4. Link all nvim related items to the nvim config folder.
+4. Link config files to the expected path under `~/.config`.
 ```
 mkdir ~/.config/nvim
 ln -sfn /path/to/dotfiles/lazyvim/stylua.toml ~/.config/nvim/stylua.toml
 ln -sfn /path/to/dotfiles/lazyvim/lua ~/.config/nvim/lua
 ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
+ln -sfn /path/to/dotfiles/lazyvim.json ~/.config/nvim/lazyvim.json
 ```
 
 5. Start nvim, and let all the packages install. Done!
 
-## Reinstallation
-Sometimes you gotta uninstall and reinstall, here are all the steps in one convenient place:
-```
-sudo apt remove neovim
-sudo rm -r ~/.local/share/nvim/
-sudo rm -r ~/.config/nvim
-sudo apt install neovim
-
-mkdir ~/.config/nvim
-ln -sfn /path/to/dotfiles/lazyvim/stylua.toml ~/.config/nvim/stylua.toml
-ln -sfn /path/to/dotfiles/lazyvim/lua ~/.config/nvim/lua
-ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
-```
-
 ## Reminders
-If uninstalling, you need to manually get rid of stuff in `~/.local/share/nvim` before reinstalling everything.
+If uninstalling/reinstalling, you need to manually get rid of stuff in `~/.local/share/nvim` before reinstalling everything.
 
 ## Dependencies
 Some plugins depend on other packages.
@@ -69,15 +96,17 @@ This is used for the nvim-tree (?) search bar in the explorer panel.
 sudo apt install fd-find
 ```
 
-2. 
-
 ## Plugins/Addons/Extras
 
 ### Mason (Language Servers)
 Enter Mason UI view from nvim: `:Mason`. Enter `g?` to toggle help page if you've forgotten the hotkeys. 
-Some ideas of what to install:
-- `java-language-server`
-- `python-lsp-server`
+
+#### Java
+I installed this via :LazyExtras. Search for `lang.java`.
+
+This creates or adds to ~/.config/nvim/lazyvim.json. It is one of the config files we are checking into this project, so copy it in with the other config files.
+
+Note that for some projects this will add some project files like what you would see in Eclipse (as JDTLS is related to the project).
 
 ### Clipboard Support
 By default LazyVim can't copy things to the clipboard.  
