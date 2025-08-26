@@ -102,11 +102,15 @@ sudo apt install fd-find
 Enter Mason UI view from nvim: `:Mason`. Enter `g?` to toggle help page if you've forgotten the hotkeys. 
 
 #### Java
-I installed this via :LazyExtras. Search for `lang.java`.
+I installed this via :LazyExtras. Search for `lang.java`, which installs required plugins.
 
 This creates or adds to ~/.config/nvim/lazyvim.json. It is one of the config files we are checking into this project, so copy it in with the other config files.
 
 Note that for some projects this will add some project files like what you would see in Eclipse (as JDTLS is related to the project).
+
+#### Python
+I installed this with :LazyExtras. Search for `lang.python`, which installs required plugins.
+This updates ~/.config/nvim/lazyvim.json.
 
 ### Clipboard Support
 By default LazyVim can't copy things to the clipboard.  
