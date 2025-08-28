@@ -28,5 +28,22 @@ Tmux Package Manager is de facto package manager for tmux.
 - When updating `tmux.conf`, styling stays after the directives that set them are removed. This means you might have to `tmux kill-server` in addition to `tmux source ~/.tmux.conf`. 
 
 ## Shortcut Reference
-`<PREFIX>` key combo is `C-a` by default (Ctrl + a), changed from standard `C-b`.
+My `<PREFIX>` key combo is `C-Space`, changed from standard `C-b`.
+
+### General
+
+`<PREFIX> + `
+
+### Windows
+- `<PREFIX> + c`: Create a new window.
+- `<PREFIX> + w`: Choose a window from a list (visual selector).
+- `<PREFIX> + n`: Move to the next window.
+- `<PREFIX> + p`: Move to the previous window.
+- `<PREFIX> + l`: Move to the last (previously selected) window.
+- `<PREFIX> + 0-9`: Select window 0 through 9.
+- `<PREFIX> + ,`: Rename the current window.
 ```
+
+
+## References 
+- https://hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/

@@ -101,6 +101,12 @@ sudo apt install fd-find
 ### Mason (Language Servers)
 Enter Mason UI view from nvim: `:Mason`. Enter `g?` to toggle help page if you've forgotten the hotkeys. 
 
+Language servers include common hotkeys, including:
+- `gd` → go to definition
+- `K` → hover info
+- `<leader>rn` → rename
+- and use `:close` to close any LSP hover window.
+
 #### Java
 I installed this via :LazyExtras. Search for `lang.java`, which installs required plugins.
 
