@@ -1,11 +1,5 @@
--- config files
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 require("config.options")
-require("config.mappings")
-require("config.autocmds")
-
--- lazy nvim plugin manager
--- require("config.lazy")
-
--- manual inclusion of plugins
-require("plugins.helloWorld")
-
+require("config.lazy")

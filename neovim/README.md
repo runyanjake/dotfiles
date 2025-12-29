@@ -26,11 +26,16 @@ sudo apt install build-essential
 ```
 
 1. Install the latest version of Neovim from the Neovim Launchpad PPA. Ubuntu apt has an older version, and since then much has changed, so we'll prefer the latest stable from the PPA.
-```
+```ubuntu
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt update
 sudo apt install neovim
 ```
+
+```macos
+brew install neovim
+```
+
 2. Ensure that the nvim runtimepath is correctly configured to include `~/.config.nvim`.  
 You can check that by executing this nvim command: `:echo &runtimepath`. 
 3. Both `init.lua` as well as the `lua/` folder and its contents should be symlinked to `~/.config/nvim` (Might need to create the nvim folder if first time).  
