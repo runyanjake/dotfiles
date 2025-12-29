@@ -7,3 +7,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# For Claude Code known installation issues on MacOS
+export PATH="$HOME/.local/bin:$PATH"
+
