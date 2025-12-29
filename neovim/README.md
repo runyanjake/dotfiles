@@ -55,6 +55,18 @@ Plugins live in lua/plugins.
 Plugins can either be manually included in init.lua or managed by lazy nvim.  
 Each plugin gets its own lua file in there, and lazy or manual edits to init.lua can be used to configure what's enabled.
 
+#### coding.lua | saghen/blink.cmp
+Completion plugin for language servers.
+[Repo](https://github.com/saghen/blink.cmp)
+
+#### snacks.lua | folke/snacks.nvim
+Snacks contains a collection of QoL plugins. I am mostly using it for ease around file system search & navigation in nvim.
+[Repo](https://github.com/folke/snacks.nvim)
+
+#### theme.lua | folke/tokyonight.nvim
+A theme I like for my nvim.
+[Repo](https://github.com/folke/tokyonight.nvim)
+
 ## References
 https://m4xshen.dev/posts/build-your-modern-neovim-config-in-lua (Using their folder structure.)
 
