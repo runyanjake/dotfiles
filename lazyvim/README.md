@@ -1,135 +1,92 @@
-# 💤 LazyVim
-My LazyVim config, a sequel to runyanjake/nvim.  
-Based off of `https://github.com/LazyVim/starter`.
+# LazyVim
+My LazyVim config for Neovim.
 
-## Installation
-
-### Configure X11 Forwarding (For clipboard access over SSH)
-Confirm on your client, and when ssh'd into remote, that `echo $DISPLAY` returns `:0` or `:1`.
-
-Install dependencies:
+## Folder Structure
 ```
-sudo apt install xauth x11-apps libx11-dev libxkbfile-dev libxtst-dev
-```
-
-Edit SSH Daemon config to allow X11 forwarding:
-```
-sudo vim /etc/ssh/sshd_config
-
-X11Forwarding yes
-X11DisplayOffset 10
-X11UseLocalhost yes
+~/.config/nvim
+|-- init.lua
+|-- lua/
+|  |-- config/
+|  |  |-- aaa.lua
+|  |  |-- bbb.lua
+|  |  |-- ccc.lua
+|  |  |-- ddd.lua
+|  |-- plugins/
+|     |-- xxx.lua
+|     |-- yyy.lua
+|       :
 ```
 
-Reminder to connect using -X flag e.g. `ssh -X user@hostname` to make use of our configuration.
+## Setup 
 
-Validate while ssh'd to server by seeing if `echo $DISPLAY` returns something along the lines of `localhost:10.0`. Or try `xclock`.
-
-### Install Neovim
-Build Neovim from source so that we can ensure clipboard support. 
-
-#### Build Dependencies
-This requires the proper packages to be installed _at the time of build_ so install the X11 dependencies above.
-
-Also install these system clipboard tools:
+### MacOS 
+1. Install latest version of Neovim (>10.4). Homebrew should have it.
+```bash
+brew install neovim
 ```
-sudo apt install xclip xsel
-sudo apt install wl-clipboard  # If using wayland, I am not.
+2. Create config folder and link files from the repo.
+```bash
+mkdir ~/.config/nvim 
+ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
+ln -sfn /path/to/dotfiles/lazyvim/lua ~/.config/nvim/lua
 ```
-
-#### Build Steps
-```
-git clone https://github.com/neovim/neovim.git
-cd neovim
-git checkout stable
-git clean -fdx  # If we already cloned/built and need to clean old build files.
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
+3. Go through first time setup.
+```bash
+nvim 
 ```
 
-Test that clipboard support is available.
-```
-nvim
-:echo has('clipboard')
-```
-OR
-```
-nvim --version | grep clipboard
-```
-This doesn't work for me but you would see the following:
-```
-+clipboard
-+xterm_clipboard
-```
-
-### Misc Dependencies
-Sometimes GCC is required for some nvim variants.
-```
+### Ubuntu
+1. GCC is required for recent Neovim variants. Get it as part of `build-essential`, a bundle of useful build tools.
+```bash
 sudo apt install build-essential
 ```
-
-### Configuration
-
-4. Link config files to the expected path under `~/.config`.
+2. Get latest Neovim from Neovim Launchpad PPA becaues default repos do not have modern Neovim.
+```bash
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update
+sudo apt install neovim
 ```
-mkdir ~/.config/nvim
-ln -sfn /path/to/dotfiles/lazyvim/stylua.toml ~/.config/nvim/stylua.toml
-ln -sfn /path/to/dotfiles/lazyvim/lua ~/.config/nvim/lua
+3. Ensure the nvim runtimepath includes `~/.config.nvim`.
+From in Neovim, execute:
+```nvim 
+:echo &runtimepath
+```
+4. Create config folder and link files from the repo.
+```bash
+mkdir ~/.config/nvim 
 ln -sfn /path/to/dotfiles/lazyvim/init.lua ~/.config/nvim/init.lua
-ln -sfn /path/to/dotfiles/lazyvim.json ~/.config/nvim/lazyvim.json
+ln -sfn /path/to/dotfiles/lazyvim/lua ~/.config/nvim/lua
+```
+5. Go through first time setup.
+```bash
+nvim 
 ```
 
-5. Start nvim, and let all the packages install. Done!
+## Plugins
+Plugins live in lua/plugins.
+Plugins can either be manually included in init.lua or managed by lazy nvim.  
+Each plugin gets its own lua file in there, and lazy or manual edits to init.lua can be used to configure what's enabled.
 
-## Reminders
-If uninstalling/reinstalling, you need to manually get rid of stuff in `~/.local/share/nvim` before reinstalling everything.
+### bufferline.lua | akinsho/bufferline.nvim
+VS Code style top tab manager.
+[Repo](https://github.com/akinsho/bufferline.nvim)
 
-## Dependencies
-Some plugins depend on other packages.
+Reminders:
+- Right click to close. 
 
-Use the `:checkhealth` command in Lazyvim to identify which packages need to be installed on the system.
+### coding.lua | saghen/blink.cmp
+Completion plugin for language servers.
+[Repo](https://github.com/saghen/blink.cmp)
 
-### Misc Dependencies
-1. fdfind
-This is used for the nvim-tree (?) search bar in the explorer panel.
-```
-sudo apt install fd-find
-```
+### snacks.lua | folke/snacks.nvim
+Snacks contains a collection of QoL plugins. I am mostly using it for ease around file system search & navigation in nvim.
+[Repo](https://github.com/folke/snacks.nvim)
 
-## Plugins/Addons/Extras
+Reminders:
+- `LEADER + e` to open neo tree sidebar
+- `LEADER + f + g` to open file search via rg (ripgrep)
 
-### Mason (Language Servers)
-Enter Mason UI view from nvim: `:Mason`. Enter `g?` to toggle help page if you've forgotten the hotkeys. 
+### theme.lua | folke/tokyonight.nvim
+A theme I like for my nvim.
+[Repo](https://github.com/folke/tokyonight.nvim)
 
-Language servers include common hotkeys, including:
-- `gd` → go to definition
-- `K` → hover info
-- `<leader>rn` → rename
-- and use `:close` to close any LSP hover window.
-
-#### Java
-I installed this via :LazyExtras. Search for `lang.java`, which installs required plugins.
-
-This creates or adds to ~/.config/nvim/lazyvim.json. It is one of the config files we are checking into this project, so copy it in with the other config files.
-
-Note that for some projects this will add some project files like what you would see in Eclipse (as JDTLS is related to the project).
-
-#### Python
-I installed this with :LazyExtras. Search for `lang.python`, which installs required plugins.
-This updates ~/.config/nvim/lazyvim.json.
-
-### Clipboard Support
-By default LazyVim can't copy things to the clipboard.  
-Install vim-gtk3 to support this:
-```
-sudo apt install vim-gtk3
-```
-Now, right click > copy will copy to system clipboard.
-Alternatively you can copy to the `+` or `*`  register (`"`` + `+` + `y` ) and paste outside.
-
-### Avante
-Reference: https://github.com/yetone/avante.nvim/blob/main/lua/avante/config.lua  
-Remember that the sidebar is toggleable using `LEADER + a + a`.
-
-## Shortcut Reference
-`<LEADER>` key is space key. I don't see a need to change it for me.
